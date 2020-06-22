@@ -1,0 +1,7 @@
+POST https://northcambridgeacademy.org/users
+Content-Type: application/json
+
+{
+    "name": "adfe",
+    "password": "123456789"
+}

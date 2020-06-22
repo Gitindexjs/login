@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Main Page</title>
+</head>
+<body>
+    <script>
+        $(document).ready(() => {
+            let pass = $('#pass');
+            $('.submit').click(() => {
+                if($('#pass').innerText.length < 6){
+                    $('#middle').append('<a>The password needs to be longer</a>')
+                }
+            })
+        })
+        function see(x){
+                x.innerText = "🐵";
+                pass.setAttribute("type", "text");
+            }
+        function outsee(x) {
+            x.innerText = "🙈";
+            pass.setAttribute("type", "password"); 
+        }
+    </script>
+    <section class="main">
+        <div id="middle">
+            <form method="POST" action="/login">
+                <div id="textbox">
+                    <input type="email" name="email" class="text"/>
+                </div>
+                <div id="textbox">
+                    <input type="password" name="password" class="text" id="pass"/><a onmouseover="see(this)" onmouseout="outsee(this)">🙈</a>
+                </div>
+                <input type="submit" class="submit"/>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

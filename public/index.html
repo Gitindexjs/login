@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Main Page</title>
+</head>
+<body>
+    <script>
+        $(document).ready(() => {
+            let pass = $('#pass');
+            let password = $('#password');
+            let messages = 0;
+            $('#form').click('submit', ev => {
+                if(pass.innerText !== password.innerText){
+                    messages.push('Passwords must be equal');
+                }
+                if(messages > 0){
+                    ev.preventDefault();
+                }
+            })
+        })
+        function see(x){
+                x.innerText = "🐵";
+                pass.setAttribute("type", "text");
+            }
+        function outsee(x) {
+            x.innerText = "🙈";
+            pass.setAttribute("type", "password"); 
+        }
+    </script>
+    <section class="main">
+        <div id="middle">
+            <form method="POST" action="/register" id="form">
+                <div class="field">
+                    <label>Email</label>
+                    <div id="textbox">
+                        <input type="email" name="email" class="text"/>
+                    </div>
+                    <label>Confirm email</label>
+                    <div id="textbox">
+                        <input type="email" class="text"/>
+                    </div>
+                    <label>Password</label>
+                    <div id="textbox">
+                        <input type="password" name="password" class="text" id="pass"/><a onmouseover="see(this)" onmouseout="outsee(this)" id="monkey">🙈</a>
+                    </div>
+                    <label>Confirm password</label>
+                    <div id="textbox">
+                        <input type="password" class="text" id="password"/>
+                    </div>
+                    <button type="submit" class="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
