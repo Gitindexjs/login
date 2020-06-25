@@ -1,10 +1,6 @@
 const express = require("express");
 const app = express();
 const fs = require('fs');
-// const mongoose = require('mongoose');
-// mongoose.connect("mongodb+srv://chris:WsZYZvwrBCX9AR6Z@liablecode-qlj4f.mongodb.net/liablecode?retryWrites=true&w=majority", err => {
-//     err ? console.log(err) : console.log('success');
-// });
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
